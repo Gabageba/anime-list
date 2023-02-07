@@ -1,7 +1,6 @@
 import React from 'react'
 import styles from './Footer.module.scss'
 import { NavItem } from './NavItem/NavItem'
-import { useState } from 'react'
 import {
   BookmarksFilledSvg,
   BookmarksOutlineSvg,
@@ -12,9 +11,7 @@ import {
   ProfileFilledSvg,
 } from '../svg/svgIcons'
 
-const Footer = () => {
-  const [currentPage, setCurrentPage] = useState('main')
-
+const Footer = ({ currentPage, setCurrentPage }) => {
   return (
     <div className={styles.footer}>
       <NavItem

@@ -1,0 +1,58 @@
+.navItem {
+  width: 75px;
+  height: 50px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+
+  .icon {
+    width: 52px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1px;
+  }
+
+  .name {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 600;
+  }
+}
+
+.active {
+  .icon {
+    background-color: var(--color-main);
+    border-radius: 15px;
+
+    svg {
+      path {
+        fill: var(--color-active)
+      }
+    }
+  }
+
+  .name {
+    color: var(--color-active)
+  }
+}
+
+
+.unactive {
+  .icon {
+    svg {
+      path {
+        fill: var(--color-unactive)
+      }
+    }
+  }
+
+  .name {
+    color: var(--color-unactive)
+  }
+}

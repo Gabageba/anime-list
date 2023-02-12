@@ -2,39 +2,43 @@ import React from 'react'
 import ScrollContainer from 'react-indiana-drag-scroll'
 import { SlideItem } from './SlideItem'
 import styles from './Slider.module.scss'
+import { SLIDER_ITEM } from '../../../utils/const'
 
 export const Slider = ({ activeBookmark, setActiveBookmark }) => {
+  const { plannedItem, lookingItem, reviewingItem, viewedItem, postponedItem, abandonedItem } =
+    SLIDER_ITEM
+
   return (
     <ScrollContainer vertical={false} className={styles.slider}>
       <SlideItem
-        name={'Запланировано'}
-        isActive={activeBookmark === 'planned'}
-        toggleClick={() => setActiveBookmark('planned')}
+        name={plannedItem.name}
+        isActive={activeBookmark === plannedItem.id}
+        toggleClick={() => setActiveBookmark(plannedItem.id)}
       />
       <SlideItem
-        name={'Смотрю'}
-        isActive={activeBookmark === 'looking'}
-        toggleClick={() => setActiveBookmark('looking')}
+        name={lookingItem.name}
+        isActive={activeBookmark === lookingItem.id}
+        toggleClick={() => setActiveBookmark(lookingItem.id)}
       />
       <SlideItem
-        name={'Пересматриваю'}
-        isActive={activeBookmark === 'reviewing'}
-        toggleClick={() => setActiveBookmark('reviewing')}
+        name={reviewingItem.name}
+        isActive={activeBookmark === reviewingItem.id}
+        toggleClick={() => setActiveBookmark(reviewingItem.id)}
       />
       <SlideItem
-        name={'Просмотрено'}
-        isActive={activeBookmark === 'viewed'}
-        toggleClick={() => setActiveBookmark('viewed')}
+        name={viewedItem.name}
+        isActive={activeBookmark === viewedItem.id}
+        toggleClick={() => setActiveBookmark(viewedItem.id)}
       />
       <SlideItem
-        name={'Отложено'}
-        isActive={activeBookmark === 'postponed'}
-        toggleClick={() => setActiveBookmark('postponed')}
+        name={postponedItem.name}
+        isActive={activeBookmark === postponedItem.id}
+        toggleClick={() => setActiveBookmark(postponedItem.id)}
       />
       <SlideItem
-        name={'Брошено'}
-        isActive={activeBookmark === 'abandoned'}
-        toggleClick={() => setActiveBookmark('abandoned')}
+        name={abandonedItem.name}
+        isActive={activeBookmark === abandonedItem.id}
+        toggleClick={() => setActiveBookmark(abandonedItem.id)}
       />
     </ScrollContainer>
   )

@@ -5,6 +5,21 @@
   --color-main: #f44242;
   --color-active: #ffffff;
   --color-unactive: #828282;
+  --color-text: #ffffff;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+a {
+  background-color: var(--color-main);
+  margin: 0;
+  color: var(--color-active);
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 12px;
 }
 
 * {
@@ -14,4 +29,5 @@
 
 body {
   background-color: #333333;
+  margin: 0;
 }

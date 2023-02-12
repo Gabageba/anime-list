@@ -1,0 +1,23 @@
+{
+  "extensionName": {
+    "message": "Cool name"
+  },
+  "extensionDescription": {
+    "message": "Fucking important description here too"
+  },
+  "openingSkip": {
+    "message": "Autoskip openning"
+  },
+  "endingSkip": {
+    "message": "Autoskip ending"
+  },
+  "nextEpisode": {
+    "message": "Autoplay next episode"
+  },
+  "fullScreen": {
+    "message": "Autoopen full screen mode"
+  },
+  "autoPlay": {
+    "message": "Auto play mode"
+  }
+}

@@ -10,37 +10,40 @@ import {
   SearchSvg,
   ProfileFilledSvg,
 } from '../svg/svgIcons'
+import { NAVIGATION_ITEM } from '../../utils/const'
 
 const Footer = ({ currentPage, setCurrentPage }) => {
+  const { mainItem, searchItem, bookmarksItem, profileItem } = NAVIGATION_ITEM
+
   return (
     <div className={styles.footer}>
       <NavItem
         unactive={<HomeOutlineSvg />}
         active={<HomeFilledSvg />}
-        name={'Главная'}
-        isActive={currentPage === 'main'}
-        toggleClick={() => setCurrentPage('main')}
+        name={mainItem.name}
+        isActive={currentPage === mainItem.id}
+        toggleClick={() => setCurrentPage(mainItem.id)}
       />
       <NavItem
         unactive={<SearchSvg />}
         active={<SearchSvg />}
-        name={'Поиск'}
-        isActive={currentPage === 'search'}
-        toggleClick={() => setCurrentPage('search')}
+        name={searchItem.name}
+        isActive={currentPage === searchItem.id}
+        toggleClick={() => setCurrentPage(searchItem.id)}
       />
       <NavItem
         unactive={<BookmarksOutlineSvg />}
         active={<BookmarksFilledSvg />}
-        name={'Закладки'}
-        isActive={currentPage === 'bookmarks'}
-        toggleClick={() => setCurrentPage('bookmarks')}
+        name={bookmarksItem.name}
+        isActive={currentPage === bookmarksItem.id}
+        toggleClick={() => setCurrentPage(bookmarksItem.id)}
       />
       <NavItem
         unactive={<ProfileOutlineSvg />}
         active={<ProfileFilledSvg />}
-        name={'Профиль'}
-        isActive={currentPage === 'profile'}
-        toggleClick={() => setCurrentPage('profile')}
+        name={profileItem.name}
+        isActive={currentPage === profileItem.id}
+        toggleClick={() => setCurrentPage(profileItem.id)}
       />
     </div>
   )

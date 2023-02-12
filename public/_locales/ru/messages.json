@@ -1,0 +1,23 @@
+{
+  "extensionName": {
+    "message": "Anime List"
+  },
+  "extensionDescription": {
+    "message": "Тоже пиздец важное описание"
+  },
+  "openingSkip": {
+    "message": "Автопропуск опеннинга"
+  },
+  "endingSkip": {
+    "message": "Автопропуск эндинга"
+  },
+  "nextEpisode": {
+    "message": "Автозапуск следующей серии"
+  },
+  "fullScreen": {
+    "message": "Автооткрытие в полном экране"
+  },
+  "autoPlay": {
+    "message": "Автопроигрывание серии"
+  }
+}

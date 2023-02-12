@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { SLIDER_ITEM } from '../../utils/const'
 import { Slider } from './Slider/Slider'
-import { useState } from 'react'
 
 export const Bookmarks = () => {
-  const [activeBookmark, setActiveBookmark] = useState('viewed')
+  const { plannedItem } = SLIDER_ITEM
+  const [activeBookmark, setActiveBookmark] = useState(plannedItem.id)
+
   return (
     <div>
       <Slider activeBookmark={activeBookmark} setActiveBookmark={setActiveBookmark} />

@@ -21,6 +21,7 @@ export const refreshAccessToken = async (refreshToken) => {
   return data
 }
 
-export const getUserData = () => {
-  const { data } = await $host.get()
+export const getUserData = async () => {
+  const { data } = await $authHost.get('/users/whoami')
+  return data
 }

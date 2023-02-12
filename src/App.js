@@ -13,7 +13,7 @@ import {
   AUTH_CODE,
   REFRESH_TOKEN,
 } from './utils/const'
-import { getAccessToken, refreshAccessToken } from './api/authApi'
+import { getAccessToken, getUserData, refreshAccessToken } from './api/authApi'
 import { setIsAuth } from './redux/userReducer'
 
 const App = () => {
@@ -41,7 +41,16 @@ const App = () => {
           console.error(error)
         })
     }
-    if (authData[AUTH_CODE] !== '' && authData[REFRESH_TOKEN] === '') {
+    if (authData[ACCESS_TOKEN] !== '') {
+      getUserData()
+        .then((data) => {
+          console.log(data)
+          dispatch(setIsAuth(true))
+        })
+        .catch((error) => {
+          console.error(error)
+        })
+    } else if (authData[AUTH_CODE] !== '' && authData[REFRESH_TOKEN] === '') {
       const currentDate = Date.now()
       getAccessToken(authData[AUTH_CODE])
         .then((data) => {
@@ -55,8 +64,6 @@ const App = () => {
         .catch((error) => {
           console.error(error)
         })
-    } else if (authData[ACCESS_TOKEN] !== '') {
-      dispatch(setIsAuth(true))
     }
   }, [authData])
 

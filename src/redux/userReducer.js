@@ -14,7 +14,6 @@ export const userReducer = (state = initialState, action) => {
         user: action.userData,
       }
     case SET_IS_AUTH:
-      console.log(action.auth)
       return {
         ...state,
         isAuth: action.auth,
@@ -25,3 +24,4 @@ export const userReducer = (state = initialState, action) => {
 }
 
 export const setIsAuth = (auth) => ({ type: SET_IS_AUTH, auth })
+export const setUser = (userData) => ({ type: SET_USER, userData })

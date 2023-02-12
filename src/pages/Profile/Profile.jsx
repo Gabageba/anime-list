@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 export const Profile = () => {
+  useEffect(() => {}, [])
+
   return (
     <div>
       <div>Profile</div>

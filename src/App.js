@@ -14,8 +14,7 @@ import {
   NAVIGATION_ITEM,
   REFRESH_TOKEN,
 } from './utils/const'
-import { getAccessToken, getUserData, refreshAccessToken } from './api/authApi'
-import { setIsAuth } from './redux/userReducer'
+import { getToken, getUser, refreshToken } from './redux/userReducer'
 
 const App = () => {
   const { mainItem } = NAVIGATION_ITEM
@@ -30,42 +29,12 @@ const App = () => {
       authData[REFRESH_TOKEN] !== '' &&
       authData[ACCESS_TOKEN_CREATED_AT] - Date.now() > ACCESS_TOKEN_LIFE
     ) {
-      const currentDate = Date.now()
-      refreshAccessToken(authData[REFRESH_TOKEN])
-        .then((data) => {
-          changeStorage(setAuthData, {
-            [ACCESS_TOKEN]: data.access_token,
-            [REFRESH_TOKEN]: data.refresh_token,
-            [ACCESS_TOKEN_CREATED_AT]: currentDate,
-          })
-        })
-        .catch((error) => {
-          console.error(error)
-        })
+      dispatch(refreshToken(authData[REFRESH_TOKEN], setAuthData))
     }
     if (authData[ACCESS_TOKEN] !== '') {
-      getUserData()
-        .then((data) => {
-          console.log(data)
-          dispatch(setIsAuth(true))
-        })
-        .catch((error) => {
-          console.error(error)
-        })
+      dispatch(getUser())
     } else if (authData[AUTH_CODE] !== '' && authData[REFRESH_TOKEN] === '') {
-      const currentDate = Date.now()
-      getAccessToken(authData[AUTH_CODE])
-        .then((data) => {
-          changeStorage(setAuthData, {
-            [ACCESS_TOKEN]: data.access_token,
-            [REFRESH_TOKEN]: data.refresh_token,
-            [ACCESS_TOKEN_CREATED_AT]: currentDate,
-          })
-          dispatch(setIsAuth(true))
-        })
-        .catch((error) => {
-          console.error(error)
-        })
+      dispatch(getToken(authData[AUTH_CODE], setAuthData))
     }
   }, [authData])
 

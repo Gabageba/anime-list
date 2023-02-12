@@ -11,13 +11,15 @@ import {
   ACCESS_TOKEN_CREATED_AT,
   ACCESS_TOKEN_LIFE,
   AUTH_CODE,
+  NAVIGATION_ITEM,
   REFRESH_TOKEN,
 } from './utils/const'
 import { getAccessToken, getUserData, refreshAccessToken } from './api/authApi'
 import { setIsAuth } from './redux/userReducer'
 
 const App = () => {
-  const [currentPage, setCurrentPage] = useState('main')
+  const { mainItem } = NAVIGATION_ITEM
+  const [currentPage, setCurrentPage] = useState(mainItem.id)
   const [authData, setAuthData] = useAuthStorage()
   const isAuth = useSelector((state) => state.user.isAuth)
   const dispatch = useDispatch()
@@ -72,7 +74,7 @@ const App = () => {
       {isAuth ? (
         <div className={styles.popupContent}>
           <Header />
-          <Content />
+          <Content currentPage={currentPage} />
           <Footer currentPage={currentPage} setCurrentPage={setCurrentPage} />
         </div>
       ) : (

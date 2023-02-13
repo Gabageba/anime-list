@@ -17,29 +17,56 @@ export const NAVIGATION_ITEM = {
   },
 }
 
-export const SLIDER_ITEM = {
+export const ANIME_SLIDER_ITEM = {
   plannedItem: {
     id: 'planned',
     name: 'Запланировано',
   },
   lookingItem: {
-    id: 'looking',
+    id: 'watching',
     name: 'Смотрю',
   },
-  reviewingItem: {
-    id: 'reviewing',
-    name: 'Пересматриваю',
-  },
+  // reviewingItem: {
+  //   id: 'reviewing',
+  //   name: 'Пересматриваю',
+  // },
   viewedItem: {
-    id: 'viewed',
+    id: 'completed',
     name: 'Просмотрено',
   },
   postponedItem: {
-    id: 'postponed',
+    id: 'on_hold',
     name: 'Отложено',
   },
   abandonedItem: {
-    id: 'abandoned',
+    id: 'dropped',
+    name: 'Брошено',
+  },
+}
+
+export const MANGA_SLIDER_ITEM = {
+  plannedItem: {
+    id: 'planned',
+    name: 'Запланировано',
+  },
+  lookingItem: {
+    id: 'watching',
+    name: 'Читаю',
+  },
+  // reviewingItem: {
+  //   id: 'reviewing',
+  //   name: 'Перечитываю',
+  // },
+  viewedItem: {
+    id: 'completed',
+    name: 'Прочитано',
+  },
+  postponedItem: {
+    id: 'on_hold',
+    name: 'Отложено',
+  },
+  abandonedItem: {
+    id: 'dropped',
     name: 'Брошено',
   },
 }
@@ -51,3 +78,5 @@ export const AUTH_CODE = 'authCode'
 export const ACCESS_TOKEN = 'accessToken'
 export const REFRESH_TOKEN = 'refreshToken'
 export const ACCESS_TOKEN_CREATED_AT = 'accessTokenCreatedAt'
+
+export const DIAGRAM_COLORS = ['#FF595E', '#FFCA3A', '#8AC926', '#1982C4', '#6A4C93']

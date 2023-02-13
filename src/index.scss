@@ -2,10 +2,18 @@
   --color-background: #141414;
   --color-header: #141414;
   --color-footer: #222222;
+  --color-line: #222222;
   --color-main: #f44242;
   --color-active: #ffffff;
   --color-unactive: #828282;
   --color-text: #ffffff;
+}
+
+.line {
+  width: 100%;
+  height: 0;
+  border-bottom: 2px solid var(--color-line);
+  margin-bottom: 20px;
 }
 
 a {

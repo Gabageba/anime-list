@@ -4,7 +4,7 @@ import styles from './App.module.scss'
 import Content from './components/Content/Content'
 import Footer from './components/Footer/Footer'
 import { useDispatch, useSelector } from 'react-redux'
-import { changeStorage, useAuthStorage } from './utils/storage'
+import { useAuthStorage } from './utils/storage'
 import { Auth } from './pages/Auth/Auth'
 import {
   ACCESS_TOKEN,
@@ -15,15 +15,17 @@ import {
   REFRESH_TOKEN,
 } from './utils/const'
 import { getToken, getUser, refreshToken } from './redux/userReducer'
+import { Loader } from './components/Loader/Loader'
 
 const App = () => {
   const { mainItem } = NAVIGATION_ITEM
   const [currentPage, setCurrentPage] = useState(mainItem.id)
   const [authData, setAuthData] = useAuthStorage()
-  const isAuth = useSelector((state) => state.user.isAuth)
+  const { isAuth, isAuthLoad } = useSelector((state) => state.user)
   const dispatch = useDispatch()
 
   useEffect(() => {
+    console.log(authData)
     if (
       authData[ACCESS_TOKEN_CREATED_AT] &&
       authData[REFRESH_TOKEN] !== '' &&
@@ -40,14 +42,20 @@ const App = () => {
 
   return (
     <div className={styles.popup}>
-      {isAuth ? (
-        <div className={styles.popupContent}>
-          <Header />
-          <Content currentPage={currentPage} />
-          <Footer currentPage={currentPage} setCurrentPage={setCurrentPage} />
-        </div>
+      {isAuthLoad ? (
+        <Loader />
       ) : (
-        <Auth />
+        <>
+          {isAuth ? (
+            <div className={styles.popupContent}>
+              <Header />
+              <Content currentPage={currentPage} />
+              <Footer currentPage={currentPage} setCurrentPage={setCurrentPage} />
+            </div>
+          ) : (
+            <Auth />
+          )}
+        </>
       )}
     </div>
   )

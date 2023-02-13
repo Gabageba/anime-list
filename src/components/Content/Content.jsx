@@ -18,7 +18,7 @@ const Content = ({ currentPage }) => {
       {currentPage === bookmarksItem.id && <Bookmarks />}
       {currentPage === profileItem.id && <Profile />}
 
-      <button onClick={() => changeStorage(setAuthData, 'default')}>asdad</button>
+      {/* <button onClick={() => changeStorage(setAuthData, 'default')}>asdad</button> */}
     </div>
   )
 }

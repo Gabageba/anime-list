@@ -2,5 +2,17 @@
   //background-color: aliceblue;
   flex: 1;
   padding-left: 20px;
+  overflow-y: scroll;
+  overflow-x: hidden;
   padding-right: 20px;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+    background-color: var(--color-background);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--color-main);
+    border-radius: 20px;
+  }
 }

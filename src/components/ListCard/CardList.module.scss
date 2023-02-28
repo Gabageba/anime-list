@@ -1,0 +1,85 @@
+.card {
+  height: 150px;
+  width: 100%;
+  display: flex;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: var(--color-card-background);
+  border: 2px solid var(--color-card-border);
+  box-sizing: border-box;
+
+  margin-top: 10px;
+
+  .preview {
+    height: 150px;
+    width: 109px;
+    border-radius: 10px;
+  }
+
+  .info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px 1px 15px;
+
+    .ruName {
+      margin-top: 0;
+      margin-bottom: 3px;
+      font-weight: 600;
+      font-size: 16px;
+      word-wrap: break-word;
+      max-width: 190px;
+      color: var(--color-caption);
+      max-height: 38px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: normal;
+    }
+
+    .enName {
+      font-size: 12px;
+      color: var(--color-additionalInfo);
+      font-weight: 600;
+    }
+
+    .about {
+      margin-top: 7px;
+      display: flex;
+      color: #fff;
+      font-size: 12px;
+
+      span {
+        margin-right: 5px;
+      }
+
+      .status {
+        //margin-left: 5px;
+        background-color: #419541;
+      }
+
+      .releaseAt {
+        background-color: #504195;
+      }
+    }
+
+    .aboutBlock {
+      span {
+        padding: 2px 5px;
+        font-weight: 600;
+        text-transform: lowercase;
+      }
+    }
+
+    .more {
+      width: 15px;
+      display: flex;
+      justify-content: center;
+      margin-top: 5px;
+      cursor: pointer;
+      svg {
+        height: 15px;
+        fill: var(--color-additionalInfo);
+      }
+    }
+  }
+}

@@ -18,8 +18,8 @@ import { getToken, getUser, refreshToken } from './redux/userReducer'
 import { Loader } from './components/Loader/Loader'
 
 const App = () => {
-  const { mainItem } = NAVIGATION_ITEM
-  const [currentPage, setCurrentPage] = useState(mainItem.id)
+  const { animeItem } = NAVIGATION_ITEM
+  const [currentPage, setCurrentPage] = useState(animeItem.id)
   const [authData, setAuthData] = useAuthStorage()
   const { isAuth, isAuthLoad } = useSelector((state) => state.user)
   const dispatch = useDispatch()
@@ -29,11 +29,11 @@ const App = () => {
     if (
       authData[ACCESS_TOKEN_CREATED_AT] &&
       authData[REFRESH_TOKEN] !== '' &&
-      authData[ACCESS_TOKEN_CREATED_AT] - Date.now() > ACCESS_TOKEN_LIFE
+      Date.now() - authData[ACCESS_TOKEN_CREATED_AT] > ACCESS_TOKEN_LIFE
     ) {
+      console.log('refresh token')
       dispatch(refreshToken(authData[REFRESH_TOKEN], setAuthData))
-    }
-    if (authData[ACCESS_TOKEN] !== '') {
+    } else if (authData[ACCESS_TOKEN] !== '') {
       dispatch(getUser())
     } else if (authData[AUTH_CODE] !== '' && authData[REFRESH_TOKEN] === '') {
       dispatch(getToken(authData[AUTH_CODE], setAuthData))

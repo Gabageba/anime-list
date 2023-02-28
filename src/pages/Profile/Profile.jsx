@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Loader } from '../../components/Loader/Loader'
-import { getProfileData } from '../../redux/ProfileReducer'
+import { getProfileData } from '../../redux/profileReducer'
 import { MainInfo } from './MainInfo/MainInfo'
 import styles from './Profile.module.scss'
 import { ANIME_SLIDER_ITEM, DIAGRAM_COLORS, MANGA_SLIDER_ITEM } from '../../utils/const'
@@ -22,7 +22,7 @@ export const Profile = () => {
         let name
         for (let key in sliderItem) {
           if (sliderItem[key].id === item.name) {
-            name = sliderItem[key].name
+            name = `${sliderItem[key].name}: ${item.size}`
           }
         }
         if (!name) {

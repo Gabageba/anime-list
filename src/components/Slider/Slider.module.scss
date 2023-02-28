@@ -1,6 +1,11 @@
 .slider {
   display: flex;
-  margin-top: 20px;
+  padding-top: 20px;
+  position: sticky;
+  top: 0;
+  background-color: var(--color-background);
+  padding-bottom: 0;
+
 
   .slideItem {
     cursor: pointer;

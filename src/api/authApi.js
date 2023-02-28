@@ -16,7 +16,7 @@ export const refreshAccessToken = async (refreshToken) => {
     grant_type: 'refresh_token',
     client_id: process.env.REACT_APP_CLIENT_ID,
     client_secret: process.env.REACT_APP_CLIENT_SECRET,
-    refreshToken,
+    refresh_token: refreshToken,
   })
   return data
 }

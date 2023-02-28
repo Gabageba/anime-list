@@ -1,6 +1,6 @@
 import { getProfile } from '../api/profileApi'
 
-const SET_PROFILE_DATA = 'SET_PTOFILE_DATA'
+const SET_PROFILE_DATA = 'SET_PROFILE_DATA'
 const SET_PROFILE_LOAD = 'SET_PROFILE_LOAD'
 
 const initialState = {

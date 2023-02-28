@@ -49,6 +49,7 @@ export const getToken = (token, setAuthData) => {
       })
       .catch((error) => {
         console.error(error)
+        dispatch(setIsAuth(false))
       })
       .finally(() => {
         dispatch(setAuthLoad(false))
@@ -70,9 +71,7 @@ export const refreshToken = (token, setAuthData) => {
       })
       .catch((error) => {
         console.error(error)
-      })
-      .finally(() => {
-        dispatch(setAuthLoad(false))
+        dispatch(setIsAuth(false))
       })
   }
 }
@@ -87,6 +86,7 @@ export const getUser = () => {
       })
       .catch((error) => {
         console.error(error)
+        dispatch(setIsAuth(false))
       })
       .finally(() => {
         dispatch(setAuthLoad(false))

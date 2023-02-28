@@ -109,10 +109,18 @@ export const ACCESS_TOKEN_CREATED_AT = 'accessTokenCreatedAt'
 
 export const DIAGRAM_COLORS = ['#FF595E', '#FFCA3A', '#8AC926', '#1982C4', '#6A4C93']
 
-export const STATUSES = [
+export const ANIME_STATUSES = [
   {id: 'released', name: 'вышло', color: '#419541'},
   {id: 'ongoing', name: 'онгоинг', color: '#1D78B7'},
   {id: 'anons', name: 'анонс', color: '#ca4929'},
+]
+
+export const MANGA_STATUSES = [
+  {id: 'released', name: 'издано', color: '#419541'},
+  {id: 'ongoing', name: 'выходит', color: '#1D78B7'},
+  {id: 'anons', name: 'анонс', color: '#ca4929'},
+  {id: 'paused', name: 'приостановлено', color: '#A063CF'},
+  {id: 'discontinued', name: 'прекращено', color: '#B19143'},
 ]
 
 export const ANIME_TYPES = [
@@ -123,3 +131,17 @@ export const ANIME_TYPES = [
   {id: 'special', name: 'спешл', color: '#087E8B'},
   {id: 'music', name: 'клип', color: '#590925'},
 ]
+
+export const MANGA_TYPES = [
+  {id: 'manga', name: 'манга', color: '#DC7F9B'},
+  {id: 'manhwa', name: 'манхва', color: '#54428E'},
+  {id: 'manhua', name: 'маньхуа', color: '#78BC61'},
+  {id: 'one_shot', name: 'ваншот', color: '#FF7700'},
+  {id: 'doujin', name: 'додзинси', color: '#087E8B'},
+]
+
+export const ANIME_CARD_TYPE = 'anime'
+export const MANGA_CARD_TYPE = 'manga'
+
+export const SHIKIMORI_URL = 'https://shikimori.one'
+

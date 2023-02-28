@@ -29,7 +29,7 @@
       font-size: 16px;
       word-wrap: break-word;
       max-width: 190px;
-      color: var(--color-caption);
+      color: var(--color-mainInfo);
       max-height: 38px;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -38,27 +38,33 @@
 
     .enName {
       font-size: 12px;
-      color: var(--color-additionalInfo);
+      color: var(--color-subInfo);
       font-weight: 600;
+      max-height: 30px;
+      overflow: hidden;
     }
 
     .about {
       margin-top: 7px;
       display: flex;
-      color: #fff;
+      color: var(--color-mainInfo);
       font-size: 12px;
 
       span {
         margin-right: 5px;
       }
 
-      .status {
-        //margin-left: 5px;
-        background-color: #419541;
-      }
+      .score {
+        display: flex;
 
-      .releaseAt {
-        background-color: #504195;
+        span {
+          margin-right: 2px;
+        }
+
+        svg {
+          width: 13px;
+          fill:var(--color-mainInfo)
+        }
       }
     }
 
@@ -78,7 +84,7 @@
       cursor: pointer;
       svg {
         height: 15px;
-        fill: var(--color-additionalInfo);
+        fill: var(--color-subInfo);
       }
     }
   }

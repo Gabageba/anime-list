@@ -25,13 +25,12 @@ const App = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    console.log(authData)
+    console.log( authData)
     if (
       authData[ACCESS_TOKEN_CREATED_AT] &&
       authData[REFRESH_TOKEN] !== '' &&
       Date.now() - authData[ACCESS_TOKEN_CREATED_AT] > ACCESS_TOKEN_LIFE
     ) {
-      console.log('refresh token')
       dispatch(refreshToken(authData[REFRESH_TOKEN], setAuthData))
     } else if (authData[ACCESS_TOKEN] !== '') {
       dispatch(getUser())

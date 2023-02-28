@@ -1,11 +1,12 @@
-import { getAnime } from '../api/animeApi'
-import { ANIME_LIMIT } from '../utils/const'
+import {getAnime} from '../api/animeApi'
+import {ANIME_LIMIT} from '../utils/const'
 
 const SET_ANIME_DATA = 'SET_ANIME_DATA'
 const CLEAR_ANIME_DATA = 'CLEAR_ANIME_DATA'
 const SET_ANIME_LOAD = 'SET_ANIME_LOAD'
 const SET_LOAD_MORE_ANIME = 'SET_LOAD_MORE_ANIME'
-const SET_ANIME_PAGE = 'SET_ANIME_PAGE'
+const CLEAR_ANIME_PAGE = 'CLEAR_ANIME_PAGE'
+const NEXT_ANIME_PAGE = 'NEXT_ANIME_PAGE'
 
 const initialState = {
   animeData: [],
@@ -36,23 +37,36 @@ export const animeReducer = (state = initialState, action) => {
         ...state,
         animeData: [],
       }
-    case SET_ANIME_PAGE:
+    case CLEAR_ANIME_PAGE:
       return {
         ...state,
-        page: action.currentPage,
+        animePage: 1,
+      }
+    case NEXT_ANIME_PAGE:
+      console.log(state.animePage)
+      return {
+        ...state,
+        animePage: state.animePage + 1
       }
     default:
       return state
   }
 }
 
+export const clearAnime = (userId, status,) => {
+  return (dispatch) => {
+    dispatch(clearAnimePage())
+    dispatch(clearAnimeData())
+    dispatch(setLoadMoreAnime(true))
+    dispatch(getAnimeData(userId, status, 1, true))
+  }
+}
+
 export const getAnimeData = (userId, status, page, loadMoreAnime) => {
   return (dispatch) => {
     if (loadMoreAnime) {
-      dispatch(setAnimeLoad(true))
       getAnime(userId, page, status, ANIME_LIMIT)
         .then((animeData) => {
-          console.log(animeData, 'Anime data')
           if (animeData.length === ANIME_LIMIT + 1) {
             animeData.pop()
             dispatch(setLoadMoreAnime(true))
@@ -60,6 +74,7 @@ export const getAnimeData = (userId, status, page, loadMoreAnime) => {
             dispatch(setLoadMoreAnime(false))
           }
           dispatch(setAnimeData(animeData))
+          dispatch(nextAnimePage())
         })
         .catch((error) => {
           console.error(error)
@@ -68,8 +83,9 @@ export const getAnimeData = (userId, status, page, loadMoreAnime) => {
     }
   }
 }
-export const clearAnimeData = () => ({ type: CLEAR_ANIME_DATA })
-export const setAnimePage = (currentPage) => ({ type: SET_ANIME_PAGE, currentPage })
-const setAnimeData = (anime) => ({ type: SET_ANIME_DATA, anime })
-const setAnimeLoad = (isLoad) => ({ type: SET_ANIME_LOAD, isLoad })
-export const setLoadMoreAnime = (loadMore) => ({ type: SET_LOAD_MORE_ANIME, loadMore })
+const clearAnimeData = () => ({type: CLEAR_ANIME_DATA})
+const clearAnimePage = () => ({type: CLEAR_ANIME_PAGE})
+const setLoadMoreAnime = (loadMore) => ({type: SET_LOAD_MORE_ANIME, loadMore})
+const setAnimeData = (anime) => ({type: SET_ANIME_DATA, anime})
+export const setAnimeLoad = (isLoad) => ({type: SET_ANIME_LOAD, isLoad})
+const nextAnimePage = () => ({type: NEXT_ANIME_PAGE})

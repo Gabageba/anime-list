@@ -4,7 +4,6 @@ import { Doughnut } from 'react-chartjs-2'
 import styles from './Diagram.module.scss'
 
 export const Diagram = ({ diagramItems, name, colors }) => {
-  console.log(diagramItems)
   ChartJS.register(ArcElement, Tooltip, Legend)
 
   const options = {

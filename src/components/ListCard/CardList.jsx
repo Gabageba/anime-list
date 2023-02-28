@@ -1,38 +1,50 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styles from './CardList.module.scss'
-import {MoreSvg} from '../svg/svgIcons'
-import {ANIME_TYPES, STATUSES} from '../../utils/const'
+import {MoreSvg, RatingSvg} from '../svg/svgIcons'
+import {
+  ANIME_TYPES, ANIME_STATUSES, ANIME_CARD_TYPE, MANGA_CARD_TYPE, MANGA_TYPES, MANGA_STATUSES, SHIKIMORI_URL
+} from '../../utils/const'
 
-export const CardList = ({data}) => {
-  const url = 'https://shikimori.one'
+export const CardList = ({data, cardType}) => {
   return (
+
     <div className={styles.card}>
       <img
         className={styles.preview}
-        src={`${url}${data.image.preview}`}
-        alt='anime'
+        src={`${SHIKIMORI_URL}${data.image.preview}`}
+        alt="anime"
       />
       <div className={styles.info}>
         <div>
           <h4 className={styles.ruName}>{data.russian}</h4>
           <div className={styles.enName}>{data.name}</div>
           <div className={`${styles.about} ${styles.aboutBlock}`}>
-            {
-              ANIME_TYPES.map(type => {
+            {cardType === ANIME_CARD_TYPE
+              ? ANIME_TYPES.map(type => {
                 return type.id === data.kind && <span style={{backgroundColor: type.color}}>{type.name}</span>
               })
-            }
-            {
-              STATUSES.map(status => {
+              : cardType === MANGA_CARD_TYPE && MANGA_TYPES.map(type => {
+              return type.id === data.kind && <span style={{backgroundColor: type.color}}>{type.name}</span>
+            })}
+
+            {cardType === ANIME_CARD_TYPE
+              ? ANIME_STATUSES.map(status => {
                 return status.id === data.status && <span style={{backgroundColor: status.color}}>{status.name}</span>
               })
-            }
+              : cardType === MANGA_CARD_TYPE &&
+              MANGA_STATUSES.map(status => {
+                return status.id === data.status && <span style={{backgroundColor: status.color}}>{status.name}</span>
+              })}
           </div>
           <div className={styles.about}>
-            <span>{data.episodes} эп</span>
+            {cardType === ANIME_CARD_TYPE
+              ? <span>{data.episodes} эп</span>
+              : cardType === MANGA_CARD_TYPE &&
+              <span>{data.volumes} том, {data.chapters} гл</span>}
             <span>·</span>
-            <div>
+            <div className={styles.score}>
               <span>{data.score}</span>
+              <RatingSvg/>
             </div>
           </div>
         </div>
@@ -40,6 +52,5 @@ export const CardList = ({data}) => {
           <MoreSvg/>
         </div>
       </div>
-    </div>
-  )
+    </div>)
 }

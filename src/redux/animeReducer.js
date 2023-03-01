@@ -43,7 +43,6 @@ export const animeReducer = (state = initialState, action) => {
         animePage: 1,
       }
     case NEXT_ANIME_PAGE:
-      console.log(state.animePage)
       return {
         ...state,
         animePage: state.animePage + 1

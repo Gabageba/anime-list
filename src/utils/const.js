@@ -98,6 +98,7 @@ export const MANGA_SLIDER_ITEM = {
 }
 
 export const ANIME_LIMIT = 20
+export const MANGA_LIMIT = 20
 
 export const ACCESS_TOKEN_LIFE = 86400000
 

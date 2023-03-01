@@ -9,11 +9,13 @@ export const CardList = ({data, cardType}) => {
   return (
 
     <div className={styles.card}>
-      <img
-        className={styles.preview}
-        src={`${SHIKIMORI_URL}${data.image.preview}`}
-        alt="anime"
-      />
+      <div>
+        <img
+          className={styles.preview}
+          src={`${SHIKIMORI_URL}${data.image.preview}`}
+          alt="anime"
+        />
+      </div>
       <div className={styles.info}>
         <div>
           <h4 className={styles.ruName}>{data.russian}</h4>
@@ -40,7 +42,7 @@ export const CardList = ({data, cardType}) => {
             {cardType === ANIME_CARD_TYPE
               ? <span>{data.episodes} эп</span>
               : cardType === MANGA_CARD_TYPE &&
-              <span>{data.volumes} том, {data.chapters} гл</span>}
+              <span>{data.volumes} т, {data.chapters} гл</span>}
             <span>·</span>
             <div className={styles.score}>
               <span>{data.score}</span>

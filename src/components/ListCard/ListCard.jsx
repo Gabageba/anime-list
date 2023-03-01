@@ -1,12 +1,12 @@
 import React from 'react'
-import styles from './CardList.module.scss'
+import styles from './ListCard.module.scss'
 import {MoreSvg, RatingSvg} from '../svg/svgIcons'
 import {
   ANIME_TYPES, ANIME_STATUSES, ANIME_CARD_TYPE, MANGA_CARD_TYPE, MANGA_TYPES, MANGA_STATUSES, SHIKIMORI_URL
 } from '../../utils/const'
 import noImage from '../../assets/no-image.png'
 
-export const CardList = ({data, cardType}) => {
+export const ListCard = ({data, cardType}) => {
   return (
 
     <div className={styles.card}>

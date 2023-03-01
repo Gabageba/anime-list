@@ -4,7 +4,7 @@ import {Slider} from '../../components/Slider/Slider'
 import {clearAnime, getAnimeData, setAnimeLoad} from '../../redux/animeReducer'
 import {useDispatch, useSelector} from 'react-redux'
 import styles from './Anime.module.scss'
-import {CardList} from '../../components/ListCard/CardList'
+import {ListCard} from '../../components/ListCard/ListCard'
 import {Loader} from '../../components/Loader/Loader'
 import {NoData} from '../../components/NoData/NoData'
 
@@ -55,7 +55,7 @@ export const Anime = () => {
           animeData.length === 0 && !isAnimeLoad
             ? <NoData/>
             : animeData.map(anime => {
-              return <CardList data={anime.anime} key={anime.id} cardType={ANIME_CARD_TYPE}/>
+              return <ListCard data={anime.anime} key={anime.id} cardType={ANIME_CARD_TYPE}/>
             })
         }
         {isAnimeLoad && <Loader/>}

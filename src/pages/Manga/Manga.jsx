@@ -3,7 +3,7 @@ import {MANGA_CARD_TYPE, MANGA_SLIDER_ITEM} from '../../utils/const'
 import {Slider} from '../../components/Slider/Slider'
 import {useDispatch, useSelector} from 'react-redux'
 import styles from './Manga.module.scss'
-import {CardList} from '../../components/ListCard/CardList'
+import {ListCard} from '../../components/ListCard/ListCard'
 import {Loader} from '../../components/Loader/Loader'
 import {NoData} from '../../components/NoData/NoData'
 import {clearManga, getMangaData, setMangaLoad} from '../../redux/mangaReducer'
@@ -56,7 +56,7 @@ export const Manga = () => {
           mangaData.length === 0 && !isMangaLoad
             ? <NoData/>
             : mangaData.map(manga => {
-              return <CardList data={manga.manga} key={manga.id} cardType={MANGA_CARD_TYPE}/>
+              return <ListCard data={manga.manga} key={manga.id} cardType={MANGA_CARD_TYPE}/>
             })
         }
         {isMangaLoad && <Loader/>}

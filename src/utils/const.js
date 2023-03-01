@@ -130,6 +130,41 @@ export const MANGA_SLIDER_ITEM = {
   },
 }
 
+export const FAVOURITE_SLIDER_ITEM = {
+  animesItem: {
+    id: 'animes',
+    name: 'Аниме',
+  },
+  mangasItem: {
+    id: 'mangas',
+    name: 'Манга',
+  },
+  charactersItem: {
+    id: 'characters',
+    name: 'Персонажи',
+  },
+  ranobeItem: {
+    id: 'ranobe',
+    name: 'Ранобе',
+  },
+  mangakasItem: {
+    id: 'mangakas',
+    name: 'Мангаки',
+  },
+  seyuItem: {
+    id: 'seyu',
+    name: 'Сейю',
+  },
+  producersItem: {
+    id: 'producers',
+    name: 'Режиссеры',
+  },
+  peopleItem: {
+    id: 'people',
+    name: 'Прочие',
+  },
+}
+
 export const ANIME_LIMIT = 20
 export const MANGA_LIMIT = 20
 

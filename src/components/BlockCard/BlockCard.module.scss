@@ -1,0 +1,40 @@
+.blockCard {
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: var(--color-card-background);
+  border: 2px solid var(--color-card-border);
+  box-sizing: border-box;
+  position: relative;
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit:cover;
+  }
+
+  .infoBlock {
+    padding: 6px 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0.9;
+    background-color: #141414;
+    cursor: pointer;
+
+    .ruName {
+      font-weight: 500;
+      font-size: 11px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: var(--color-mainInfo);
+      white-space: nowrap;
+      margin: 0;
+    }
+
+    .active {
+      white-space: normal;
+    }
+  }
+
+}

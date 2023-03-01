@@ -1,7 +1,7 @@
 import React from 'react'
-import styles from './NavItem.module.scss'
+import styles from './FooterNavItem.module.scss'
 
-export const NavItem = ({ active, unactive, name, toggleClick, isActive }) => {
+export const FooterNavItem = ({ active, unactive, name, toggleClick, isActive }) => {
   return (
     <div
       className={`${styles.navItem} ${isActive ? styles.active : styles.unactive} `}

@@ -1,19 +1,26 @@
 .card {
   height: 150px;
   width: 100%;
-  display: flex;
+  display: grid;
   border-radius: 10px;
   overflow: hidden;
   background-color: var(--color-card-background);
   border: 2px solid var(--color-card-border);
   box-sizing: border-box;
-
   margin-top: 10px;
+  grid-template-columns: 105px 1fr;
 
   .preview {
     height: 150px;
-    width: 109px;
+    width: 105px;
     border-radius: 10px;
+    overflow: hidden;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit:cover;
+    }
   }
 
   .info {

@@ -76,6 +76,16 @@ export const MangaOutlineSvg = () => {
   )
 }
 
+export const FavouriteOutlineSvg = () => {
+  return (
+    <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 18.35">
+      <g >
+        <path d="M14.5,0c-1.74,0-3.41,.81-4.5,2.09C8.91,.81,7.24,0,5.5,0,2.42,0,0,2.42,0,5.5c0,3.78,3.4,6.86,8.55,11.54l1.45,1.31,1.45-1.32c5.15-4.67,8.55-7.75,8.55-11.53,0-3.08-2.42-5.5-5.5-5.5Zm-4.4,15.55l-.1,.1-.1-.1C5.14,11.24,2,8.39,2,5.5c0-2,1.5-3.5,3.5-3.5,1.54,0,3.04,.99,3.57,2.36h1.87c.52-1.37,2.02-2.36,3.56-2.36,2,0,3.5,1.5,3.5,3.5,0,2.89-3.14,5.74-7.9,10.05Z"/>
+      </g>
+    </svg>
+  )
+}
+
 export const BookmarksFilledSvg = () => {
   return (
     <svg width='14' height='18' viewBox='0 0 14 18' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -126,6 +136,16 @@ export const MangaFilledSvg = () => {
   )
 }
 
+export const FavouriteFilledSvg = () => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 18.35">
+      <g >
+        <path d="M10,18.35l-1.45-1.32C3.4,12.36,0,9.28,0,5.5,0,2.42,2.42,0,5.5,0c1.74,0,3.41,.81,4.5,2.09,1.09-1.28,2.76-2.09,4.5-2.09,3.08,0,5.5,2.42,5.5,5.5,0,3.78-3.4,6.86-8.55,11.54l-1.45,1.31Z"/>
+      </g>
+    </svg>
+  )
+}
+
 export const SearchSvg = () => {
   return (
     <svg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -161,3 +181,6 @@ export const RatingSvg = () => {
     </svg>
   )
 }
+
+
+

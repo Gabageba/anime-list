@@ -10,14 +10,26 @@
 
 
   .icons {
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+
     svg {
-      margin-left: 20px;
+      //margin-left: 20px;
       cursor: pointer;
+      width: 20px;
+      height: 20px;
 
       path {
         fill: var(--color-unactive)
       }
 
+    }
+
+    .active {
+      path {
+        fill: var(--color-main)
+      }
     }
   }
 }

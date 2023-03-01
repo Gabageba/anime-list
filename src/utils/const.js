@@ -1,18 +1,21 @@
 import {
   AnimeFilledSvg,
-  AnimeOutlineSvg,
+  AnimeOutlineSvg, FavouriteFilledSvg, FavouriteOutlineSvg,
   MangaFilledSvg,
-  MangaOutlineSvg,
+  MangaOutlineSvg, NotificationSvg,
   ProfileFilledSvg,
   ProfileOutlineSvg,
-  SearchSvg,
+  SearchSvg, SettingsSvg,
 } from '../components/svg/svgIcons'
 import { Anime } from '../pages/Anime/Anime'
 import { Manga } from '../pages/Manga/Manga'
 import { Profile } from '../pages/Profile/Profile'
 import { Search } from '../pages/Search/Search'
+import {Favourite} from '../pages/Favourite/Favourite'
+import {Notifications} from '../pages/Notifications/Notifications'
+import {Settings} from '../pages/Settings/Settings'
 
-export const NAVIGATION_ITEM = {
+export const FOOTER_NAVIGATION_ITEMS = {
   animeItem: {
     id: 'anime',
     name: 'Аниме',
@@ -27,12 +30,19 @@ export const NAVIGATION_ITEM = {
     unactive: <MangaOutlineSvg />,
     page: <Manga />,
   },
-  searchItem: {
-    id: 'search',
-    name: 'Поиск',
-    active: <SearchSvg />,
-    unactive: <SearchSvg />,
-    page: <Search />,
+  // searchItem: {
+  //   id: 'search',
+  //   name: 'Поиск',
+  //   active: <SearchSvg />,
+  //   unactive: <SearchSvg />,
+  //   page: <Search />,
+  // },
+  favourites: {
+    id: 'favourites',
+    name: 'Избранное',
+    active: <FavouriteFilledSvg/>,
+    unactive: <FavouriteOutlineSvg />,
+    page: <Favourite />,
   },
   profileItem: {
     id: 'profile',
@@ -42,6 +52,29 @@ export const NAVIGATION_ITEM = {
     page: <Profile />,
   },
 }
+
+export const HEADER_NAVIGATION_ITEMS = {
+  searchItem: {
+    id: 'search',
+    name: 'Поиск',
+    icon: <SearchSvg />,
+    page: <Search />,
+  },
+  notificationsItem: {
+    id: 'notifications',
+    name: 'Уведомления',
+    icon: <NotificationSvg/>,
+    page: <Notifications />,
+  },
+  settingsItem: {
+    id: 'settings',
+    name: 'Настройки',
+    icon: <SettingsSvg />,
+    page: <Settings />,
+  },
+}
+
+export const NAVIGATION_ITEMS = {...FOOTER_NAVIGATION_ITEMS, ...HEADER_NAVIGATION_ITEMS}
 
 export const ANIME_SLIDER_ITEM = {
   plannedItem: {

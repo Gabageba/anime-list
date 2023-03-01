@@ -10,15 +10,14 @@ import {
   ACCESS_TOKEN,
   ACCESS_TOKEN_CREATED_AT,
   ACCESS_TOKEN_LIFE,
-  AUTH_CODE,
-  NAVIGATION_ITEM,
+  AUTH_CODE, NAVIGATION_ITEMS,
   REFRESH_TOKEN,
 } from './utils/const'
 import { getToken, getUser, refreshToken } from './redux/userReducer'
 import { Loader } from './components/Loader/Loader'
 
 const App = () => {
-  const { animeItem } = NAVIGATION_ITEM
+  const { animeItem } = NAVIGATION_ITEMS
   const [currentPage, setCurrentPage] = useState(animeItem.id)
   const [authData, setAuthData] = useAuthStorage()
   const { isAuth, isAuthLoad } = useSelector((state) => state.user)
@@ -47,9 +46,9 @@ const App = () => {
         <>
           {isAuth ? (
             <div className={styles.popupContent}>
-              <Header />
+              <Header currentPage={currentPage} setCurrentPage={setCurrentPage}/>
               <Content currentPage={currentPage} />
-              <Footer currentPage={currentPage} setCurrentPage={setCurrentPage} />
+              <Footer currentPage={currentPage} setCurrentPage={setCurrentPage}/>
             </div>
           ) : (
             <Auth />

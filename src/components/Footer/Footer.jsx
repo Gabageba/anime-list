@@ -1,18 +1,18 @@
 import React from 'react'
 import styles from './Footer.module.scss'
-import { NavItem } from './NavItem/NavItem'
-import { NAVIGATION_ITEM } from '../../utils/const'
+import { FooterNavItem } from './FooterNavItem/FooterNavItem'
+import { FOOTER_NAVIGATION_ITEMS } from '../../utils/const'
 
 const Footer = ({ currentPage, setCurrentPage }) => {
   return (
     <div className={styles.footer}>
-      {Object.keys(NAVIGATION_ITEM).map((item) => (
-        <NavItem
-          unactive={NAVIGATION_ITEM[item].unactive}
-          active={NAVIGATION_ITEM[item].active}
-          name={NAVIGATION_ITEM[item].name}
-          isActive={currentPage === NAVIGATION_ITEM[item].id}
-          toggleClick={() => setCurrentPage(NAVIGATION_ITEM[item].id)}
+      {Object.keys(FOOTER_NAVIGATION_ITEMS).map((item) => (
+        <FooterNavItem
+          unactive={FOOTER_NAVIGATION_ITEMS[item].unactive}
+          active={FOOTER_NAVIGATION_ITEMS[item].active}
+          name={FOOTER_NAVIGATION_ITEMS[item].name}
+          isActive={currentPage === FOOTER_NAVIGATION_ITEMS[item].id}
+          toggleClick={() => setCurrentPage(FOOTER_NAVIGATION_ITEMS[item].id)}
         />
       ))}
     </div>

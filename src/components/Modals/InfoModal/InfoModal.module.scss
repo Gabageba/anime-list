@@ -1,0 +1,38 @@
+.name {
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--color-card-border);
+  margin-bottom: 10px;
+
+  .ruName {
+      margin-top: 0;
+      margin-bottom: 3px;
+      font-weight: 600;
+      font-size: 18px;
+      word-wrap: break-word;
+      color: var(--color-mainInfo)
+  }
+
+}
+
+.infoChange {
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+  cursor: pointer;
+
+  //&:hover {
+  //  background-color: var(--color-card-hover-background);
+  //}
+
+  svg {
+    width: 20px;
+    fill: var(--color-subInfo);
+    margin-right: 10px;
+  }
+
+  span {
+    color: var(--color-subInfo);
+    font-size: 14px;
+  }
+}

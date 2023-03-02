@@ -209,8 +209,8 @@ export const MANGA_TYPES = [
   {id: 'doujin', name: 'додзинси', color: '#087E8B'},
 ]
 
-export const ANIME_CARD_TYPE = 'anime'
-export const MANGA_CARD_TYPE = 'manga'
+export const ANIME_CARD_TYPE = 'animes'
+export const MANGA_CARD_TYPE = 'mangas'
 
 export const SHIKIMORI_URL = 'https://shikimori.one'
 

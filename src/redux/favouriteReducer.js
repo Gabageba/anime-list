@@ -4,7 +4,7 @@ const SET_FAVOURITE_DATA = 'SET_FAVOURITE_DATA'
 const SET_FAVOURITE_LOAD = 'SET_FAVOURITE_LOAD'
 
 const initialState = {
-  favouriteData: {},
+  favouriteData: [],
   isFavouriteLoad: true,
 }
 

@@ -56,7 +56,7 @@ export const Manga = () => {
           mangaData.length === 0 && !isMangaLoad
             ? <NoData/>
             : mangaData.map(manga => {
-              return <ListCard data={manga.manga} key={manga.id} cardType={MANGA_CARD_TYPE}/>
+              return <ListCard data={manga.manga} key={manga.id} cardType={MANGA_CARD_TYPE} status={manga.status}/>
             })
         }
         {isMangaLoad && <Loader/>}

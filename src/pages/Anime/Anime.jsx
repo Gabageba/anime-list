@@ -7,6 +7,7 @@ import styles from './Anime.module.scss'
 import {ListCard} from '../../components/ListCard/ListCard'
 import {Loader} from '../../components/Loader/Loader'
 import {NoData} from '../../components/NoData/NoData'
+import {getFavouriteData} from '../../redux/favouriteReducer'
 
 export const Anime = () => {
   const {plannedItem} = ANIME_SLIDER_ITEM
@@ -24,6 +25,9 @@ export const Anime = () => {
     (isAnimeLoad &&  animeData.length !== 0) && dispatch(getAnimeData(id, activeBookmark, animePage, loadMoreAnime))
   }, [isAnimeLoad])
 
+  useEffect(() => {
+    dispatch(getFavouriteData(id))
+  }, [])
 
   useEffect(() => {
     const content = document.getElementById('contentBlock')
@@ -54,8 +58,8 @@ export const Anime = () => {
         {
           animeData.length === 0 && !isAnimeLoad
             ? <NoData/>
-            : animeData.map(anime => {
-              return <ListCard data={anime.anime} key={anime.id} cardType={ANIME_CARD_TYPE}/>
+            : animeData.map((anime) => {
+              return <ListCard data={anime.anime} key={anime.id} cardType={ANIME_CARD_TYPE} status={anime.status}/>
             })
         }
         {isAnimeLoad && <Loader/>}

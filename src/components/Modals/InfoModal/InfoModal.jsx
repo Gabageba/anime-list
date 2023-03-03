@@ -4,7 +4,7 @@ import styles from './InfoModal.module.scss'
 import {EditPlaylist, FavouriteFilledSvg, FavouriteOutlineSvg} from '../../svg/svgIcons'
 import {ANIME_CARD_TYPE, ANIME_SLIDER_ITEM, MANGA_CARD_TYPE, MANGA_SLIDER_ITEM} from '../../../utils/const'
 
-export const InfoModal = ({setModalActive, name, isFavourite, status, type}) => {
+export const InfoModal = ({setModalActive, name, isFavourite, status, type, editFavourite}) => {
   const [statusName, setStatusName] = useState('')
 
   useEffect(() => {
@@ -29,11 +29,11 @@ export const InfoModal = ({setModalActive, name, isFavourite, status, type}) => 
       <div>
         {
           isFavourite
-            ? <div className={styles.infoChange}>
+            ? <div className={`${styles.infoChange} ${styles.favouriteColor}`} onClick={editFavourite}>
               <FavouriteFilledSvg/>
               <span>Удалить из избранного</span>
             </div>
-            : <div className={`${styles.infoChange}`}>
+            : <div className={styles.infoChange} onClick={editFavourite}>
               <FavouriteOutlineSvg/>
               <span>Добавить в избранное</span>
             </div>

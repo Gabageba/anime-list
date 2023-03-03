@@ -6,12 +6,23 @@ import {
 } from '../../utils/const'
 import noImage from '../../assets/no-image.png'
 import {InfoModal} from '../Modals/InfoModal/InfoModal'
-import {useSelector} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
+import {addFavouriteData, deleteFavouriteData} from '../../redux/favouriteReducer'
 
 export const ListCard = ({data, cardType, status}) => {
+  const dispatch = useDispatch()
   const [modalActive, setModalActive] = useState(false)
   const [isFavourite, setIsFavourite] = useState(false)
   const {favouriteData} = useSelector((state) => state.favourite)
+
+  const editFavourite = () => {
+    const linkedType = cardType === ANIME_CARD_TYPE ? 'Anime' : cardType === MANGA_CARD_TYPE ? 'Manga' : ''
+    if (isFavourite) {
+      dispatch(deleteFavouriteData(data.id, linkedType, setIsFavourite))
+    } else {
+      dispatch(addFavouriteData(data.id, linkedType, setIsFavourite))
+    }
+  }
 
   useEffect(() => {
     favouriteData.length !== 0 &&
@@ -57,7 +68,7 @@ export const ListCard = ({data, cardType, status}) => {
                 ?
                 <span>{data.status === 'ongoing' ? `${data.episodes_aired} из ${data.episodes === 0 ? '?' : data.episodes}` : data.episodes} эп</span>
                 : cardType === MANGA_CARD_TYPE &&
-                 <span>{data.volumes !== 0 && `${data.volumes} т, `}{`${data.chapters === 0 ? '?' : data.chapters} гл`}</span>}
+                <span>{data.volumes !== 0 && `${data.volumes} т, `}{`${data.chapters === 0 ? '?' : data.chapters} гл`}</span>}
               <span>·</span>
               <div className={styles.score}>
                 <span>{data.score}</span>
@@ -70,6 +81,13 @@ export const ListCard = ({data, cardType, status}) => {
           <MoreSvg/>
         </div>
       </div>
-      { modalActive && <InfoModal setModalActive={setModalActive} name={data.russian} isFavourite={isFavourite} type={cardType} status={status}/> }
+      {modalActive &&
+        <InfoModal setModalActive={setModalActive}
+                   name={data.russian}
+                   isFavourite={isFavourite}
+                   type={cardType}
+                   status={status}
+                   editFavourite={editFavourite}
+        />}
     </div>)
 }

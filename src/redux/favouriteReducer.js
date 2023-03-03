@@ -1,4 +1,4 @@
-import {getFavourite} from '../api/favouriteApi'
+import {addFavourite, deleteFavourite, getFavourite} from '../api/favouriteApi'
 
 const SET_FAVOURITE_DATA = 'SET_FAVOURITE_DATA'
 const SET_FAVOURITE_LOAD = 'SET_FAVOURITE_LOAD'
@@ -39,5 +39,29 @@ export const getFavouriteData = (userId) => {
   }
 }
 
-const setFavouriteData = (data) => ({ type: SET_FAVOURITE_DATA, data })
-const setFavouriteLoad = (isLoad) => ({ type: SET_FAVOURITE_LOAD, isLoad })
+export const addFavouriteData = (linkedId, linkedType, setIsFavourite,  kind = '') => {
+  return (dispatch) => {
+    addFavourite(linkedId, linkedType, kind)
+      .then(data => {
+        setIsFavourite(true)
+      })
+      .catch((error) => {
+        console.error(error)
+      })
+  }
+}
+
+export const deleteFavouriteData = (linkedId, linkedType, setIsFavourite) => {
+  return (dispatch) => {
+    deleteFavourite(linkedId, linkedType)
+      .then(data => {
+        setIsFavourite(false)
+      })
+      .catch((error) => {
+        console.error(error)
+      })
+  }
+}
+
+const setFavouriteData = (data) => ({type: SET_FAVOURITE_DATA, data})
+const setFavouriteLoad = (isLoad) => ({type: SET_FAVOURITE_LOAD, isLoad})

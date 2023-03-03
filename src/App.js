@@ -8,7 +8,7 @@ import { useAuthStorage } from './utils/storage'
 import { Auth } from './pages/Auth/Auth'
 import {
   ACCESS_TOKEN,
-  ACCESS_TOKEN_CREATED_AT,
+  ACCESS_TOKEN_CREATED_AT, ACCESS_TOKEN_DATA,
   ACCESS_TOKEN_LIFE,
   AUTH_CODE, NAVIGATION_ITEMS,
   REFRESH_TOKEN,

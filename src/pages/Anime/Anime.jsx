@@ -59,7 +59,11 @@ export const Anime = () => {
           animeData.length === 0 && !isAnimeLoad
             ? <NoData/>
             : animeData.map((anime) => {
-              return <ListCard data={anime.anime} key={anime.id} cardType={ANIME_CARD_TYPE} status={anime.status}/>
+              return <ListCard data={anime.anime}
+                               key={anime.id}
+                               cardType={ANIME_CARD_TYPE}
+                               status={anime.status}
+              />
             })
         }
         {isAnimeLoad && <Loader/>}

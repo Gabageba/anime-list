@@ -36,3 +36,9 @@
     font-size: 14px;
   }
 }
+
+.favouriteColor {
+  svg {
+    fill: var(--color-main);
+  }
+}

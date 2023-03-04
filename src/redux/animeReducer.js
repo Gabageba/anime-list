@@ -1,4 +1,4 @@
-import {getAnime} from '../api/animeApi'
+import {getAnime, putAnimeRate} from '../api/animeApi'
 import {ANIME_LIMIT} from '../utils/const'
 
 const SET_ANIME_DATA = 'SET_ANIME_DATA'
@@ -82,6 +82,21 @@ export const getAnimeData = (userId, status, page, loadMoreAnime) => {
     }
   }
 }
+
+export const putAnimeData = (userId, status, currentStatus, action) => {
+  return dispatch => {
+    putAnimeRate(userId, currentStatus)
+      .then(() => {
+        dispatch(clearAnimePage())
+        dispatch(clearAnimeData())
+        action()
+        getAnimeData(userId, status, 1, true)
+      })
+      .catch(e => console.error(e))
+  }
+}
+
+
 const clearAnimeData = () => ({type: CLEAR_ANIME_DATA})
 const clearAnimePage = () => ({type: CLEAR_ANIME_PAGE})
 const setLoadMoreAnime = (loadMore) => ({type: SET_LOAD_MORE_ANIME, loadMore})

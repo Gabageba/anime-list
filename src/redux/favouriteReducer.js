@@ -43,7 +43,7 @@ export const addFavouriteData = (linkedId, linkedType, setIsFavourite,  kind = '
   return (dispatch) => {
     addFavourite(linkedId, linkedType, kind)
       .then(data => {
-        setIsFavourite(true)
+        setIsFavourite()
       })
       .catch((error) => {
         console.error(error)
@@ -55,7 +55,7 @@ export const deleteFavouriteData = (linkedId, linkedType, setIsFavourite) => {
   return (dispatch) => {
     deleteFavourite(linkedId, linkedType)
       .then(data => {
-        setIsFavourite(false)
+        setIsFavourite()
       })
       .catch((error) => {
         console.error(error)

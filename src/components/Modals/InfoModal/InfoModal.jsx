@@ -3,8 +3,9 @@ import {ModalWindow} from '../ModalWindow/ModalWindow'
 import styles from './InfoModal.module.scss'
 import {EditPlaylist, FavouriteFilledSvg, FavouriteOutlineSvg} from '../../svg/svgIcons'
 import {ANIME_CARD_TYPE, ANIME_SLIDER_ITEM, MANGA_CARD_TYPE, MANGA_SLIDER_ITEM} from '../../../utils/const'
+import {StatusChangeModal} from '../StatusChangeModal/StatusChangeModal'
 
-export const InfoModal = ({setModalActive, name, isFavourite, status, type, editFavourite}) => {
+export const InfoModal = ({setModalActive, name, isFavourite, status, type, editFavourite, setStatusModalActive}) => {
   const [statusName, setStatusName] = useState('')
 
   useEffect(() => {
@@ -38,7 +39,7 @@ export const InfoModal = ({setModalActive, name, isFavourite, status, type, edit
               <span>Добавить в избранное</span>
             </div>
         }
-        <div className={styles.infoChange}>
+        <div className={styles.infoChange} onClick={() => setStatusModalActive(true)}>
           <EditPlaylist/>
           <span>В списке: {statusName}</span>
         </div>

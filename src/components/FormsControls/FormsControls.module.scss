@@ -1,0 +1,61 @@
+.status {
+  margin-bottom: 20px;
+
+  .radioButton {
+
+    &:checked,
+    &:not(:checked) {
+      position: absolute;
+      left: -9999px;
+    }
+
+    &:checked + label,
+    &:not(:checked) + label {
+      position: relative;
+      padding-left: 28px;
+      cursor: pointer;
+      line-height: 20px;
+      display: inline-block;
+      color: var(--color-text);
+    }
+
+    &:checked + label:before,
+    &:not(:checked) + label:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 16px;
+      height: 16px;
+      border: 2px solid var(--color-unactive);
+      border-radius: 100%;
+      background: var(--color-background);
+    }
+
+    &:checked + label:after,
+    &:not(:checked) + label:after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--color-unactive);
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      border-radius: 100%;
+      -webkit-transition: all 0.2s ease;
+      transition: all 0.2s ease;
+    }
+
+    &:not(:checked) + label:after {
+      opacity: 0;
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    }
+    &:checked + label:after {
+      opacity: 1;
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+}
+

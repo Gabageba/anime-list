@@ -10,3 +10,12 @@ export const getAnime = async (userId, page, status, limit) => {
   })
   return data
 }
+
+export const putAnimeRate = async (userId, status) => {
+  const {data} = await $authHost.put(`/v2/user_rates/${userId}`, {
+    params: {
+      status
+    }
+  })
+  return data
+}

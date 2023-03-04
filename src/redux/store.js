@@ -11,7 +11,8 @@ const reducers = combineReducers({
   profile: profileReducer,
   anime: animeReducer,
   manga: mangaReducer,
-  favourite: favouriteReducer
+  favourite: favouriteReducer,
+
 })
 
 export const store = createStore(reducers, applyMiddleware(thunkMiddleware))

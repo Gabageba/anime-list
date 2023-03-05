@@ -1,30 +1,30 @@
-import React, { useState, useEffect } from 'react'
+import React, {useState, useEffect} from 'react'
 import Header from './components/Header/Header'
 import styles from './App.module.scss'
 import Content from './components/Content/Content'
 import Footer from './components/Footer/Footer'
-import { useDispatch, useSelector } from 'react-redux'
-import { useAuthStorage } from './utils/storage'
-import { Auth } from './pages/Auth/Auth'
+import {useDispatch, useSelector} from 'react-redux'
+import {useAuthStorage} from './utils/storage'
+import {Auth} from './pages/Auth/Auth'
 import {
   ACCESS_TOKEN,
-  ACCESS_TOKEN_CREATED_AT, ACCESS_TOKEN_DATA,
+  ACCESS_TOKEN_CREATED_AT,
   ACCESS_TOKEN_LIFE,
   AUTH_CODE, NAVIGATION_ITEMS,
   REFRESH_TOKEN,
 } from './utils/const'
-import { getToken, getUser, refreshToken } from './redux/userReducer'
-import { Loader } from './components/Loader/Loader'
+import {getToken, getUser, refreshToken, unLogin} from './redux/userReducer'
+import {Loader} from './components/Loader/Loader'
 
 const App = () => {
-  const { animeItem } = NAVIGATION_ITEMS
+  const {animeItem} = NAVIGATION_ITEMS
   const [currentPage, setCurrentPage] = useState(animeItem.id)
   const [authData, setAuthData] = useAuthStorage()
-  const { isAuth, isAuthLoad } = useSelector((state) => state.user)
+  const {isAuth, isAuthLoad} = useSelector((state) => state.user)
   const dispatch = useDispatch()
 
   useEffect(() => {
-    console.log( authData)
+    console.log(authData)
     if (
       authData[ACCESS_TOKEN_CREATED_AT] &&
       authData[REFRESH_TOKEN] !== '' &&
@@ -38,20 +38,33 @@ const App = () => {
     }
   }, [authData])
 
+  useEffect(() => {
+    chrome.storage.sync.get('auth').then(data => {
+      if (
+        data.auth[AUTH_CODE] === '' &&
+        data.auth[ACCESS_TOKEN] === '' &&
+        data.auth[REFRESH_TOKEN] === '' &&
+        data.auth[ACCESS_TOKEN_CREATED_AT] === null
+      ) {
+        dispatch(unLogin())
+      }
+    })
+  }, [])
+
   return (
     <div className={styles.popup}>
       {isAuthLoad ? (
-        <Loader />
+        <Loader/>
       ) : (
         <>
           {isAuth ? (
             <div className={styles.popupContent}>
               <Header currentPage={currentPage} setCurrentPage={setCurrentPage}/>
-              <Content currentPage={currentPage} />
+              <Content currentPage={currentPage}/>
               <Footer currentPage={currentPage} setCurrentPage={setCurrentPage}/>
             </div>
           ) : (
-            <Auth />
+            <Auth/>
           )}
         </>
       )}

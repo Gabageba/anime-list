@@ -94,6 +94,14 @@ export const getUser = () => {
   }
 }
 
+export const unLogin = () => {
+  return (dispatch) => {
+    dispatch(setIsAuth(false))
+    dispatch(setUser({}))
+    dispatch(setAuthLoad(false))
+  }
+}
+
 const setIsAuth = (auth) => ({ type: SET_IS_AUTH, auth })
 const setAuthLoad = (isLoad) => ({ type: SET_AUTH_LOAD, isLoad })
 const setUser = (userData) => ({ type: SET_USER, userData })

@@ -16,10 +16,10 @@ export const Manga = () => {
   const [activeBookmark, setActiveBookmark] = useState(plannedItem.id)
 
   useEffect(() => {
-    console.log(activeBookmark)
-    dispatch(setMangaLoad(true))
-    dispatch(clearManga(id, activeBookmark))
-  }, [activeBookmark])
+    if (id !== undefined) {
+      dispatch(clearManga(id, activeBookmark))
+    }
+  }, [activeBookmark, id])
 
   useEffect(() => {
     (isMangaLoad &&  mangaData.length !== 0) && dispatch(getMangaData(id, activeBookmark, mangaPage, loadMoreManga))

@@ -14,4 +14,5 @@ if (code) {
   chrome.storage.sync.set({ auth: { authCode: code } })
 }
 
+
 // chrome.storage.sync.clear()

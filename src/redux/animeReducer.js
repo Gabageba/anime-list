@@ -64,6 +64,7 @@ export const clearAnime = (userId, status,) => {
 export const getAnimeData = (userId, status, page, loadMoreAnime) => {
   return (dispatch) => {
     if (loadMoreAnime) {
+      dispatch(setAnimeLoad(true))
       getAnime(userId, page, status, ANIME_LIMIT)
         .then((animeData) => {
           if (animeData.length === ANIME_LIMIT + 1) {

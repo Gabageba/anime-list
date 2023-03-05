@@ -7,7 +7,6 @@ import styles from './Anime.module.scss'
 import {ListCard} from '../../components/ListCard/ListCard'
 import {Loader} from '../../components/Loader/Loader'
 import {NoData} from '../../components/NoData/NoData'
-import {getFavouriteData} from '../../redux/favouriteReducer'
 
 export const Anime = () => {
   const {plannedItem} = ANIME_SLIDER_ITEM
@@ -17,17 +16,15 @@ export const Anime = () => {
   const [activeBookmark, setActiveBookmark] = useState(plannedItem.id)
 
   useEffect(() => {
-    dispatch(setAnimeLoad(true))
-    dispatch(clearAnime(id, activeBookmark))
-  }, [activeBookmark])
+    if (id !== undefined) {
+      dispatch(clearAnime(id, activeBookmark))
+    }
+  }, [activeBookmark, id])
 
   useEffect(() => {
-    (isAnimeLoad &&  animeData.length !== 0) && dispatch(getAnimeData(id, activeBookmark, animePage, loadMoreAnime))
+    (isAnimeLoad && animeData.length !== 0 ) && dispatch(getAnimeData(id, activeBookmark, animePage, loadMoreAnime))
   }, [isAnimeLoad])
 
-  useEffect(() => {
-    dispatch(getFavouriteData(id))
-  }, [])
 
   useEffect(() => {
     const content = document.getElementById('contentBlock')

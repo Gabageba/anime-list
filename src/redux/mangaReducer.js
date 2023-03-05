@@ -64,6 +64,7 @@ export const clearManga = (userId, status,) => {
 export const getMangaData = (userId, status, page, loadMoreManga) => {
   return (dispatch) => {
     if (loadMoreManga) {
+      dispatch(setMangaLoad(true))
       getManga(userId, page, status, MANGA_LIMIT)
         .then((mangaData) => {
           if (mangaData.length === MANGA_LIMIT + 1) {
